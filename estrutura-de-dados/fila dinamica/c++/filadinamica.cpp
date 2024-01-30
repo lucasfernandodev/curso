@@ -78,7 +78,7 @@ using namespace std;
 
   void filadinamica::imprimir()
   {
-    No* temp;
+    No* temp = primeiro;
     cout << "Fila= [ ";
     while(temp != NULL){
       cout << temp->valor << " ";

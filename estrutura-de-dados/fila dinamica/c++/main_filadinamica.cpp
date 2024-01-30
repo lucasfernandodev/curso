@@ -23,7 +23,7 @@ int main(){
     
     } else if(opcao == 2){
       item = fila1.remover();
-      cout << "O elemento removido é > " << item << endl;
+      cout << "O elemento removido é: " << item << endl;
       
     } else if(opcao == 3){
       fila1.imprimir();

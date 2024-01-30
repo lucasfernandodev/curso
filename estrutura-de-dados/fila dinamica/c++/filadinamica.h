@@ -2,9 +2,10 @@
 
 typedef int TipoItem;
 
-struct No{
-  TipoItem valor
-  No* proximo
+struct No
+{
+  TipoItem valor;
+  No* proximo;
 };
 
 class filadinamica{
