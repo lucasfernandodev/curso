@@ -77,7 +77,21 @@ using namespace std;
   {}
 
   void ArvoreBinariadeBusca::buscar(Aluno& aluno, bool& busca)
-  {}
+  {
+    busca = false;
+    No* noatutal = raiz;
+    while(noatual != NULL){
+      if(aluno.obterRa() < noatual->aluno.obterRa()){
+        noatual = noatual->filhoesquerda;
+      }else if(aluno.obterRa() > noatual->aluno.obterRa()){
+        noatual = noatual->filhodireita; 
+      }else{
+        busca = true;
+        aluno = noatual->aluno;
+        break;
+      }
+    }
+  }
 
   void imrimirpreordem(No* Noatual)
   {}
