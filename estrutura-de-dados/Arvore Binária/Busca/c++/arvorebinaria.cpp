@@ -74,12 +74,51 @@ using namespace std;
   }
 
   void ArvoreBinariadeBusca::remover(Aluno aluno)
-  {}
+  {
+    removerBusca(aluno, raiz);
+  }
+
+  void ArvoreBinariadeBusca::removerBusca(Aluno aluno, No*& noatual)
+  {
+    if(aluno.obterRa() < noatual->aluno.obterRa()){
+      removerBusca(aluno, noatual->filhoesquerda);
+    }else if(aluno.obterRa() > noatual->aluno.obterRa()){
+      removerBusca(aluno, noatual->filhodireita);
+    }else{
+      deletarNo(noatual);
+    }
+  }
+
+  void ArvoreBinariadeBusca::deletarNo(No*& noatual)
+  {
+    No* temp = noatual;
+    if(noatual->filhoesquerda == NULL){
+      noatual = noatual->filhodireita;
+      delete temp;
+    }else if(noatual->filhodireita == NULL){
+      noatual = noatual->filhodireita;
+      delete temp;
+    }else{
+      Aluno AlunoSucessor;
+      obterSucessor(AlunoSucessor, noatual);
+      noatual->aluno = AlunoSucessor;
+      removerBusca(AlunoSucessor,noatual->filhodireita);
+    }
+  }
+
+  void ArvoreBinariadeBusca::obterSucessor(Aluno& AlunoSucessor, No* temp)
+  {
+    temp = temp->filhodireita;
+    while (temp->filhoesquerda != NULL){
+      temp = temp->filhoesquerda;
+    }
+    AlunoSucessor = temp->aluno;
+  }
 
   void ArvoreBinariadeBusca::buscar(Aluno& aluno, bool& busca)
   {
     busca = false;
-    No* noatutal = raiz;
+    No* noatual = raiz;
     while(noatual != NULL){
       if(aluno.obterRa() < noatual->aluno.obterRa()){
         noatual = noatual->filhoesquerda;
