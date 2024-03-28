@@ -8,10 +8,10 @@ struct No{
 };
 
 class ArvoreBinariadeBusca{ //BST
-  public:
+  private:
   No* raiz;
 
-  private:
+  public:
   ArvoreBinariadeBusca();
   ~ArvoreBinariadeBusca();
   void deletarArvore(No* NoAtual);
@@ -24,7 +24,8 @@ class ArvoreBinariadeBusca{ //BST
   void deletarNo(No*& noatual);
   void obterSucessor(Aluno& AlunoSucessor, No* temp);
   void buscar(Aluno& aluno, bool& busca);
-  void imrimirpreordem(No* Noatual);
+  void imprimirpreordem(No* Noatual);
   void imprimiremordem(No* Noatual);
+  void imprimirposordem(No* Noatual);
   
 };
